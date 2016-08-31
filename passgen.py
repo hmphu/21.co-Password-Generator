@@ -5,13 +5,14 @@ import yaml
 import json
 from flask import request
 from random import randint
+from base64 import b64 encode
+from os import urandom
 app = flask.Flask(__name__)
 payment = Payment(app, Wallet())
 
 @app.route('/gen')
 @payment.required(1000)
 def gen():
-    chars = '0123456789abcdefghijklmnopqrstuzwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+=-.'
     try:
         test = request.args['len']
         test = 1
@@ -23,9 +24,8 @@ def gen():
         if length < 8: length = 8
     else:
         length = randint(12,24)
-    passwd = ''
-    for i in range(0,length):
-        passwd += chars[randint(0,(len(chars)-1))]
+    rand_bytes = urandom(64)
+    passwd = b64encode(rand_bytes).decode('utf-8')[0:length-1]
     return "Your password is:\n{0}".format(passwd)
 
 @app.route('/manifest')
