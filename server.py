@@ -5,7 +5,7 @@ import yaml
 import json
 from flask import request
 from random import randint
-from base64 import b64 encode
+from base64 import b64encode
 from os import urandom
 app = flask.Flask(__name__)
 payment = Payment(app, Wallet())

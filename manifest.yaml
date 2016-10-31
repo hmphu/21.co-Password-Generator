@@ -6,7 +6,7 @@ info:
   ## TODO: Replace this IP address with your 21 address
   ##       You can get your IP address by running the following command
   ## python3 -c 'from two1.commands.util import zerotier; print(zerotier.get_address("21market"))'
-  x-21-quick-buy: "21 buy url 'http://<YOUR IP HERE>:8002/gen"
+  x-21-quick-buy: "21 buy url 'http://bitmonga.me:8002/gen"
   x-21-category: utilities
   x-21-total-price:
     min: 1000
@@ -18,7 +18,7 @@ info:
 ## TODO: Replace this IP address with your 21 address
 ##       You can get your IP address by running the following command
 ## python3 -c 'from two1.commands.util import zerotier; print(zerotier.get_address("21market"))'
-host: <YOUR IP HERE>:8002
+host: bitmonga.me:8002
 schemes:
   - http
 basePath: /
